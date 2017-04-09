@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <title>上海橡诺科技有限公司</title>
+    <meta name="baidu-site-verification" content="RrZKFnqSsc" />
+    <meta name="description" content="上海橡诺科技有限公司—专注于为客户提供引领行业的移动互联网软件定制开发服务" />
+    <meta name="keywords" content="上海橡诺科技有限公司,APP开发,软件开发,HTML5开发,微信开发,高端网站建设,营销推广" />
+
+    <link href="templets/default/css/bootstrap.min.css" tppabs="http://www.xnuoo.com/templets/default/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="templets/default/scss/style.min.css" tppabs="http://www.xnuoo.com/templets/default/scss/style.min.css" type="text/css" rel="stylesheet" />
+    <link href="templets/default/css/startcom.css" tppabs="http://www.xnuoo.com/templets/default/css/startcom.css" type="text/css" rel="stylesheet" />
+    <link href="templets/default/scss/index.min.css" tppabs="http://www.xnuoo.com/templets/default/scss/index.min.css" type="text/css" rel="stylesheet" />
+    <link href="templets/default/scss/mystyle.css" tppabs="http://www.xnuoo.com/templets/default/scss/mystyle.css" type="text/css" rel="stylesheet" />
+    
+    <!--手机背景 图片切换 js -->
+    <script type="text/javascript" src="templets/default/javascript/jquery-1.11.3.min.js" tppabs="http://www.xnuoo.com/templets/default/javascript/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="templets/default/javascript/jquery.touchSlider.js" tppabs="http://www.xnuoo.com/templets/default/javascript/jquery.touchSlider.js"></script>
+    <script src="templets/default/javascript/script-about.js" tppabs="http://www.xnuoo.com/templets/default/javascript/script-about.js" type="text/javascript"></script><!--pc端图片切换js-->
+    
+          <script src="layer/layer.js" tppabs="http://www.xnuoo.com/layer/layer.js" type="text/javascript"></script>
+          <script type="text/javascript">
+              ; (function ($) {
+                  $.fn.placeholder = function (options) {
+                      var opts = $.extend({}, $.fn.placeholder.defaults, options);
+                      var isIE = document.all ? true : false;
+                      return this.each(function () {
+                          var _this = this,
+                              placeholderValue = _this.getAttribute("placeholder"); //缓存默认的placeholder值
+                          if (isIE) {
+                              _this.setAttribute("value", placeholderValue);
+                              _this.onfocus = function () {
+                                  $.trim(_this.value) == placeholderValue ? _this.value = "" : '';
+                              };
+                              _this.onblur = function () {
+                                  $.trim(_this.value) == "" ? _this.value = placeholderValue : '';
+                              };
+                          }
+                      });
+                  };
+              })(jQuery);
+          </script>
+
+          <script type="text/javascript">
+             <!--表单验证 -->
+    function ischeck() {
+        var reg = /^0?(13|14|15|17|18)[0-9]{9}$/;
+        var name = $("#name").val();
+        var tel = $("#mobile").val();
+        var desc = $("#content").val();
+
+        if (name.length == 0) {
+            $("#name").focus();
+            layer.msg('请输入姓名');
+            return false;
+
+        }
+        else if (tel.length ==0) {
+            $("#tel").focus();
+            layer.msg("请输入手机号");
+            return false;
+        }
+        else if (!reg.test(tel) || tel.length > 11) {
+            $("#tel").focus();
+            layer.msg("手机号格式错误");
+            return false;
+        }
+
+        else if (desc.length ==0) {
+            $("#desc").focus();
+            layer.msg("请输入项目描述");
+            return false;
+        }
+
+        else {
+            return true;
+        }
+    }
+
+
+    function GoInput() {
+        window.location.href="tel:18616565790";
+        if (ischeck()) {
+            var name = $("#name").val();
+            var tel = $("#mobile").val();
+            var desc = $("#content").val();
+            $.ajax({
+                url: "http://www.xnuoo.com/tools/submit.ashx",
+                type: "Post",
+                data: { name: escape(name),tel: escape(tel), desc: escape(desc) },
+                success: function (msg) {
+                    if (msg == "success") {
+                        layer.msg("提交成功", { time: 2000 }, function () {
+                            window.location.reload();
+                        });
+                    } else {
+                        alert(msg);
+                    }
+                }
+            })
+        }
+    }
+          </script>
+    <style type="text/css">
+	    .customer_logo{ margin-bottom:20px;}
+        /*banner css start*/
+        #banner .banner-item .banner-text > div:first-child {
+            font-size: 48px;
+        }
+
+        #banner .banner-item em {
+            font-size: 66px;
+        }
+
+        #banner .banner-item .banner-text > div:last-child {
+            font-size: 20px;
+        }
+
+        #banner .banner-item:nth-child(1) .banner-img {
+            background-image: url("templets/default/images/banner_04.jpg")/*tpa=http://www.xnuoo.com/templets/default/images/banner_04.jpg*/;
+        }
+
+        #banner .banner-item:nth-child(2) .banner-img {
+            background-image: url("templets/default/images/banner_04.jpg")/*tpa=http://www.xnuoo.com/templets/default/images/banner_04.jpg*/;
+        }
+
+        @media (-webkit-min-device-pixel-ratio:2) {
+            #banner .banner-item:nth-child(1) .banner-img {
+                background-image: url("templets/default/images/banner_04.jpg")/*tpa=http://www.xnuoo.com/templets/default/images/banner_04.jpg*/ !important;
+            }
+
+            #banner .banner-item:nth-child(2) .banner-img {
+                background-image: url("templets/default/images/banner_04.jpg")/*tpa=http://www.xnuoo.com/templets/default/images/banner_04.jpg*/ !important;
+            }
+        }
+
+        @media (max-width: 767px) {
+            #banner .banner-item .banner-text > div > div[data-role='entext'] {
+                padding: 0 !important;
+            }
+
+            #banner .banner-item .banner-text > div:first-child {
+                font-size: 24px;
+            }
+
+            #banner .banner-item em {
+                font-size: 20px;
+            }
+
+            #banner .banner-item .banner-text > div:last-child {
+                font-size: 10px;
+            }
+
+            #banner .banner-item:nth-child(1) .banner-img {
+                background-image: url("templets/default/images/banner_04.jpg")/*tpa=http://www.xnuoo.com/templets/default/images/banner_04.jpg*/ !important;
+            }
+
+            #banner .banner-item:nth-child(2) .banner-img {
+                background-image: url("templets/default/images/banner_04.jpg")/*tpa=http://www.xnuoo.com/templets/default/images/banner_04.jpg*/ !important;
+            }
+        }
+        /*banner css end*/
+        
+        @media only screen and (max-width: 767px) {
+            .col-small-12 {
+                width: 100%;
+            }
+
+            .team-person {
+                position: relative;
+                margin: 10px 0;
+            }
+
+            .itme-con {
+                padding: 15px 0;
+            }
+
+            .leader-line {
+                margin: 13px auto 10px;
+            }
+			.customer_logo{ margin-top:0; margin-bottom:0;}
+
+        }
+
+        .banner .banner-item .banner-text > div {
+            margin-top: 18%\9; /*兼容IE6 IE7 IE8*/
+        }
+
+        .slideup_info_bg > div {
+            margin-top: 32%\9; /*兼容IE6 IE7 IE8*/
+        }
+    </style>
+
+</head>
+<body style="background:#fff;">
+<nav class="navbar navbar-default navbar-fixed-top u-navbar">
+        
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed">
+                    <span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar icon-bar1"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar icon-bar2"></span>
+                </button>
+                <a class="navbar-brand" href="index.html" tppabs="http://www.xnuoo.com/index.html">
+                    <figure class="ac-logo-icon pc-none"></figure>
+                    <div class="logo-pc-div app-none">
+                        <figure class="ac-familybrowser-icon"></figure>
+                    </div>
+                </a>
+                <form class="navbar-right pc-none">
+					<a class="top-tel-phone" href="tel:021-60453682"></a>
+                </form>
+            </div>
+            <div class="navbar-collapse collapse navbar-right" style="height: auto;">
+                <!-- Main navigation -->
+                <ul class="nav navbar-nav">
+                    <li><a href="index.html" >首页</a></li>
+                    <li><a href="service.html" >服务</a></li>
+                    <li><a href="solution.html" >解决方案</a></li>
+                    <li><a href="case.html" >案例</a></li>
+                    <li><a href="partner.html" >伙伴</a></li>
+                    <li><a href="about.html" >关于</a></li>
+                    <li><a href="contact.html" >联系</a></li>
+                </ul>
+                <div class="navbar-right app-none" style=" margin-top: -14px;">
+                    <a style="font-size: 13px; text-decoration: none" class="top-tel-pc" href="tel:021-60453682">
+                        <span style="color:rgba(0,0,0,.5)">电话：</span>&nbsp;021-60453682
+                    </a>
+                    <a style="font-size: 13px; text-decoration: none; margin-top: 0px;" class="top-tel-pc-shouhou" href="tel:18616565790">
+                        <span style="color: rgba(0,0,0,.5)"> 手机： </span>186-1656-5790
+                    </a>
+                </div>
+            </div>
+    </nav>
+    
+    
+    <!--案例-->
+    <div class="container anli">
+        <div class="title-comm">
+            <h2 class="par01">为您提供专业的解决方案</h2>
+            <p class="par02">专业的服务 高效的方案</p>
+            <p class="par03">Professional service and efficient solution</p>
+        </div>
+</div>
+<div class="product-content" style="margin-top: -60px;">
+    <ul>
+        <li class="p1"><a href="javascript:void(0);">
+            <img src="templets/default/images/solution/list-05.jpg" width="220" height="220" alt="">
+        </a>
+            <dl>
+                <dt>汽车金融</dt>
+                <dd>
+                    <p>新车及二手车销售、汽车服务、汽车金融为主体的解决方案</p>
+                    <!--<a href="javascript:void(0);">查看详情<i class="fa fa-caret-right"></i></a></dd>-->
+            </dl>
+        </li>
+        <li class="p2"><a href="javascript:void(0);">
+            <img src="templets/default/images/solution/list-02.jpg" width="220" height="220" alt="">
+        </a>
+            <dl>
+                <dt>证券行业</dt>
+                <dd>
+                    <p>海外直邮、保税集货、清关备货，三种跨境模式下的解决方案</p>
+                    <!--<a href="javascript:void(0);">查看详情<i class="fa fa-caret-right"></i></a></dd>-->
+            </dl>
+        </li>
+        <li class="p3"><a href="javascript:void(0);">
+            <img src="templets/default/images/solution/list-03.jpg" width="220" height="220" alt="">
+        </a>
+            <dl>
+                <dt>运维</dt>
+                <dd>
+                    <p>电视端、pc端、移动端、触屏设备等一体化电视购物商城系统</p>
+                    <!--<a href="javascript:void(0);">查看详情<i class="fa fa-caret-right"></i></a></dd>-->
+            </dl>
+        </li>
+        <li class="p4"><a href="javascript:void(0);">
+            <img src="templets/default/images/solution/list-04.jpg" width="220" height="220" alt="">
+        </a>
+            <dl>
+                <dt>行业软件</dt>
+                <dd>
+                    <p>线上线下完美结合，聚集消费群体，体验新时尚消费的快感</p>
+                    <!--<a href="javascript:void(0);">查看详情<i class="fa fa-caret-right"></i></a></dd>-->
+            </dl>
+        </li>
+    </ul>
+</div>
+<div class="product-content">
+    <ul>
+        <li class="p1"><a href="javascript:void(0);">
+            <img src="templets/default/images/solution/list-01.jpg" width="220" height="220" alt="">
+        </a>
+            <dl>
+                <dt>农村电商</dt>
+                <dd>
+                    <p>传统商超百货行业通过电商系统搭建快捷、便利的购物平台</p>
+                    <!--<a href="javascript:void(0);">查看详情<i class="fa fa-caret-right"></i></a></dd>-->
+            </dl>
+        </li>
+        <li class="p2"><a href="javascript:void(0);">
+            <img src="templets/default/images/solution/list-06.jpg" width="220" height="220" alt="">
+        </a>
+            <dl>
+                <dt>虚拟账户平台</dt>
+                <dd>
+                    <p>全网平台搭建，多触点连接用户，打通母婴市场全渠道的方案</p>
+                    <!--<a href="javascript:void(0);">查看详情<i class="fa fa-caret-right"></i></a></dd>-->
+            </dl>
+        </li>
+        <li class="p3"><a href="javascript:void(0);">
+            <img src="templets/default/images/solution/list-07.jpg" width="220" height="220" alt="">
+        </a>
+            <dl>
+                <dt>移动支付</dt>
+                <dd>
+                    <p>针对医药流通领域，提供多种经营电商业务模式的系统方案</p>
+                    <!--<a href="javascript:void(0);">查看详情<i class="fa fa-caret-right"></i></a></dd>-->
+            </dl>
+        </li>
+        <li class="p4"> <a href="javascript:void(0);">
+            <img src="templets/default/images/solution/list-08.jpg" width="220" height="220" alt="">
+        </a>
+            <dl>
+                <dt>租赁系统</dt>
+                <dd>
+                    <p>解决信息流、业务流、资金流、物流等工业电商核心的方案</p>
+                    <!--<a href="javascript:void(0);">查看详情<i class="fa fa-caret-right"></i></a></dd>-->
+            </dl>
+        </li>
+    </ul>
+</div>
+
+
+<!-- 项目需求 -->
+<div class="section5">
+    <div class="wrap">
+        <h2>填写您的项目需求给我们。</h2>
+        <div class="write clearfix">
+            <input name="name" placeholder="称呼姓名" value="" class="text1" id="name" type="text" maxlength="10">
+            <input name="mobile" placeholder="联系电话" value="" class="text2" id="mobile" type="text" maxlength="11">
+            <input name="content" placeholder="描述您的需求，如APP开发、微信开发、网站建设等。" id="content" value="" class="text3" type="text" maxlength="300">
+            <input name="submit" value="提交项目需求" class="submit" id="submit" rel="" type="submit" onclick="return GoInput()">
+        </div>
+        <b>*请认真填写需求信息，我们会在24小时内与您取得联系。</b>
+    </div>
+</div>
+
+<!-- footer部分 -->
+    <div class="footer">
+        <div class="wrap clearfix">
+            <div class="left">
+                <h2>联系我们</h2>
+                <h3>地址：上海市浦东新区顾唐路977号B区2007室</h3>
+                <h3>电话：021-60453682</h3>                 <h3>手机：186-1656-5790</h3>
+                <h3>欢迎您来电咨询，我们将竭诚为您服务。</h3>
+            </div>
+            <div class="right">
+                <h2>使命及未来</h2>
+                <p>
+                    我们对移动互联网的未来充满信心，肩负实现中国企业互联网+转型升级的伟大使命，路虽坎坷，我们坚信目标必定达成。 未来属于强者，属于具有战略眼光的人，我们将和众多服务客户及合作伙伴共同成长，一起见证中国移动互联网的伟大变革。
+                </p>
+            </div>
+            <div class="copyright">
+                <p>COPYRIGHT © 2012-2017 上海橡诺科技有限公司版权所有 All RIGHTS RESERVED</p>
+                <p>沪ICP备14053876号</p>
+            </div>
+        </div>
+    </div>
+
+<style type="text/css">
+    .bg-div {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0,0,0,.5);
+        z-index: 50;
+    }
+
+    .body-static {
+        overflow: hidden !important;
+    }
+
+    .bg-div.hide {
+        display: none;
+    }
+</style>
+<div class="bg-div hide">
+
+</div>
+<!--底部蒙层end-->
+<script type="text/javascript">
+    $(function() {
+        $(".navbar-toggle").click(function () {
+			$(this).toggleClass("click");
+			$(".bg-div").toggleClass("hide");
+			$("body").toggleClass("body-static");
+			$(".navbar-form a").toggleClass("active");
+			$(".navbar-collapse").slideToggle();
+		});
+		$(".bg-div").click(function () {
+			$(".navbar-toggle").trigger("click");
+		});
+
+		var top = ($(window).height() - $(".modal-content").height()) / 2;
+		$(".model-down").click(function () {
+			$(".modal-content").css({ position: 'absolute', 'top': top});
+		});
+         $(".model-down-1").click(function () {
+			$(".modal-content").css({ position: 'absolute', 'top': top});
+		});
+
+         $(".weixin-logo-icon").mouseleave(function () {
+             $(this).prev().find(".popover").removeClass("hover");
+         }).mouseenter(function () {
+             $(this).prev().find(".popover").addClass("hover");
+         });
+         $(".shouji-logo-icon").mouseleave(function () {
+             $(this).prev().find(".popover").removeClass("hover");
+         }).mouseenter(function () {
+             $(this).prev().find(".popover").addClass("hover");
+         });
+
+		var navAgent = navigator.userAgent.toLowerCase();
+		if(navAgent.indexOf("thjk-app-ios") > -1 || navAgent.indexOf("thdoctor-app-ios") > -1 || navAgent.indexOf("thjk-app-android") > -1 || navAgent.indexOf("thdoctor-app-android") > -1){
+			$(".navbar-form.navbar-right").hide();
+			$(".nav > li:last-child a").css({"border-bottom":"0"});
+		}
+
+		$(".navbar-nav > li.click a").removeAttr("href");
+    });
+</script>
+    <link href="templets/default/skrollr/theme-cobalt.css" tppabs="http://www.xnuoo.com/templets/default/skrollr/theme-cobalt.css" rel="stylesheet" type="text/css" media="all">
+    <script src="templets/default/skrollr/jquery.plugin.min.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/jquery.plugin.min.js"></script>
+    <script src="templets/default/skrollr/jquery.flexslider-min.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/jquery.flexslider-min.js"></script>
+    <script src="templets/default/skrollr/smooth-scroll.min.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/smooth-scroll.min.js"></script>
+    <script src="templets/default/skrollr/skrollr.min.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/skrollr.min.js"></script>
+    <script src="templets/default/skrollr/spectragram.min.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/spectragram.min.js"></script>
+    <script src="templets/default/skrollr/scrollReveal.min.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/scrollReveal.min.js"></script>
+    <script src="templets/default/skrollr/isotope.min.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/isotope.min.js"></script>
+    <script src="templets/default/skrollr/lightbox.min.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/lightbox.min.js"></script>
+    <script src="templets/default/skrollr/scripts.js" tppabs="http://www.xnuoo.com/templets/default/skrollr/scripts.js"></script>
+    <script type="text/javascript" src="templets/default/javascript/bootstrap.min.js" tppabs="http://www.xnuoo.com/templets/default/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".navbar-nav > li:nth-child(3)").addClass("click").append($('<p class="line-top"></p>')).find("a").removeAttr("href");
+        });
+		
+    </script>
+
+    <div id="top"></div>
+    <script type="text/javascript" src="templets/default/javascript/top.js" tppabs="http://www.xnuoo.com/templets/default/javascript/top.js"></script>
+<style type="text/css">
+/*QQ浮窗*/
+.qqkefu { width: 160px; position: fixed; z-index: 100; right: 0; top: 200px; transition: all .5s ease 0s; }
+.qqkefu.qqkefu-nome { right: -130px; }
+.qqkefu.qqkefu-nome .qqkefu-left { background-position: 0 0; }
+.qqkefu-left { width: 35px; *width: 30px; height: 130px; float: left; margin-top: 40px; background: url("templets/default/images/qqkefu.png")/*tpa=http://www.xnuoo.com/templets/default/images/qqkefu.png*/ no-repeat -30px 0 #00A0E9; cursor: pointer; border-radius: 5px 0 0 5px; overflow: hidden; }
+.rides-cs .floatL { width: 30px; float: left; position: relative; z-index: 1; border-radius: 5px 0 0 5px; overflow: hidden; }
+.qqkefu-right { background: #00A0E9; width: 125px; float: right; border-radius: 5px 0 0 5px; padding: 5px 0 5px 5px }
+.qqkefu-right-box { background: #fff; border-radius: 5px 0 0 5px; }
+.qqkefu-right-box ul { margin: 0px; list-style: none inside; padding: 0px; }
+.qqkefu-right-box li { height: 39px; line-height: 39px; border-bottom: 1px solid #e9e9e9; padding: 0 0 0 15px; margin: 0px; font-size: 12px; font-family: "Microsoft YaHei", "微软雅黑"; }
+.qqkefu-right-box li.title { color: #bbbbbb; font-size: 14px; }
+.qqkefu-right-box li.title  a{ color: #333333; font-size: 12px; }
+.qqkefu-right-box li.title  a:hover{ color: #00A0E9; font-size: 12px; }
+.qqkefu-right-box li.title  span{ color: #333333; font-size: 12px; }
+.qqkefu-right-box li.second-last { color: #333333; font-size: 14px; }
+.qqkefu-right-box li.last { border-bottom: none;color: #333333; font-size: 14px; }
+.qqkefu-right-box li i { margin-right: 10px; }
+.qqkefu-right-box li i.ico-qq { background: url("templets/default/images/qqkefu.png")/*tpa=http://www.xnuoo.com/templets/default/images/qqkefu.png*/ no-repeat 0 -260px; width: 15px; height: 16px; display: inline-block; vertical-align: middle; }
+@media only screen and (max-width: 479px) {
+#qqkefu {
+  display: none;
+}
+.izl-rmenu {right:10px; bottom: 60px;}
+}
+/* 移动端底部客服 */
+.footer_front { position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; z-index: 888; transform-origin: 0px 0px 0px; opacity: 1; transform: scale(1, 1); display: none; }
+#menu { position: fixed; bottom: 0px; width: 100%; height: 50px; line-height: 44px; z-index: 999; }
+#menu ul { margin: 0 auto; list-style-type: none; width: 100%; max-width: 500px; height: 100%; padding:0px;}
+#menu ul li { float: left; width: 50%; height: 100%; text-align: center; position: relative; font-size: 14px; }
+#menu ul li .line { position: absolute; top: 0px; right: 0px; z-index: 30; width: 1px; }
+#menu ul li .menu_li { position: absolute; top: 7px; left: 5%; z-index: 40; width: 90%; height: 36px; line-height: 36px; color: #fff; border-radius: 3px; }
+#menu .phone_bottom_menu { color: #fff; text-decoration: blink; width: 100%; height: 100%; display: block; }
+#menu ul li:nth-of-type(1) .menu_li { background-color: #7fbcf3; }
+#menu ul li:nth-of-type(2) .menu_li { background-color: #f4b10e; }
+#menu ul li:nth-of-type(3) .menu_li { background-color: #f94a45; }
+#menu ul li .img_front { position: absolute; top: 0px; left: 0px; z-index: 30; width: 100%; height: 100%; background-color: #000; opacity: .65; }
+#menu ul li .img_front img { width: 100%; height: 100%; }
+#menu ul li span { position: absolute; bottom: -300px; left: 50%; width: 104px; margin-left: -52px; height: auto; text-align: center; z-index: 10; }
+#menu ul li span a { display: block; float: left; width: 100%; height: 43px; line-height: 43px; color: #454545; text-decoration: none; text-align: center; }
+#menu ul li .menu_li .icon { width: 1.8em; margin-right: 0.5em; display: inline-block; vertical-align: top;}
+#menu ul li .menu_li .icon.icon-phone { width: 2em;}
+</style>
+<script>
+window.onload = function() {
+    $('#menu ul li').each(function(j) {
+        $('#menu ul li').eq(j).removeClass("on");
+        $('#menu ul li span').eq(j).animate({
+            bottom: -$('#menu ul li span').eq(j).height()
+        },
+        100);
+    });
+}
+$(".online_newqq").click(function() {
+    if (! ($(this).hasClass("on"))) {
+        $('#menu ul .on span').animate({
+            bottom: -$('#menu ul .on span').height()
+        },
+        200);
+        $('#menu ul .on').removeClass("on");
+        $(this).addClass("on");
+        $(this).find("span").animate({
+            bottom: 55
+        },
+        200);
+        $('.footer_front').show();
+    } else {
+        $(this).find("span").animate({
+            bottom: -$(this).find("span").height()
+        },
+        200);
+        $(this).removeClass("on");
+        $('.footer_front').hide();
+    }
+});
+$('.footer_front').click(function() {
+    $('#menu ul .on span').animate({
+        bottom: -$('#menu ul .on span').height()
+    },
+    200);
+    $('#menu ul .on').removeClass("on");
+    $(this).hide();
+});
+$('.query_btn').on('click',
+function() {
+    layer.open({
+        type: 2,
+        title: '5秒快速提交，10秒客服响应！',
+        area: ['340px', '300px'],
+        content: ['http://www.xnuoo.com/share.htm', 'no']
+    });
+    return false;
+});
+</script> 
+<script type="text/javascript">
+(function() {
+    function browserRedirect() {
+        var sUserAgent = navigator.userAgent.toLowerCase();
+        var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+        var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+        var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+        var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+        var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+        var bIsAndroid = sUserAgent.match(/android/i) == "android";
+        var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+        var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+        if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsAndroid || bIsCE || bIsWM) {
+            this_Phone = 1;
+        };
+    };
+    function getQuery_Qq_String(name, qq_search) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = qq_search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    };
+    function isWeiXin() {
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            return true;
+        } else {
+            return false;
+        }
+    };
+    var this_Phone = 0;
+    browserRedirect();
+    if (this_Phone) {
+        $("#menu").show();
+    } else {
+        $("#qqkefu").show();
+    }
+    if (this_Phone && (!isWeiXin())) {
+        $(".wap_app_qq a").each(function() {
+            var $this = $(this);
+            var app_qq = $this.attr("href");
+            var temp = app_qq.substring(app_qq.indexOf("?"));
+            app_qq = getQuery_Qq_String("uin", temp);
+            $this.attr("href", "mqq://im/chat?chat_type=wpa&uin=" + app_qq + "&version=1&src_type=web");
+        });
+    };
+})();
+</script> 
+<script type="text/javascript">
+$('.qqkefu-left').click(function() {
+    if ($(this).parent().attr('class') == 'qqkefu') {
+        $(this).parent().addClass('qqkefu-nome');
+    } else {
+        $(this).parent().removeClass('qqkefu-nome');
+    }
+});
+</script>
+    <script type="text/javascript">
+        $("input").placeholder();
+    </script>
+</body>
+</html>
